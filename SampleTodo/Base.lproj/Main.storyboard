@@ -8,7 +8,7 @@
         <!--Do-It List-->
         <scene sceneID="zym-cd-gjb">
             <objects>
-                <tableViewController id="oJc-oK-RNS" sceneMemberID="viewController">
+                <tableViewController id="oJc-oK-RNS" customClass="DoItListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JE8-6I-WtG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,11 +342,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add ToDo Item" id="Qwz-is-WW1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3qo-dI-57w"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="LPu-1q-FC8"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3qo-dI-57w">
+                            <connections>
+                                <segue destination="jkV-j9-Gf0" kind="unwind" identifier="cancelSegue" unwindAction="unwindToList:" id="ROw-NE-XoK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="LPu-1q-FC8">
+                            <connections>
+                                <segue destination="jkV-j9-Gf0" kind="unwind" identifier="saveSegue" unwindAction="unwindToList:" id="ygl-0F-ytw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="jkV-j9-Gf0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1995" y="165"/>
         </scene>
