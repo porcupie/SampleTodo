@@ -15,6 +15,7 @@
 		2D6AF79B1A8BE8B400048ACC /* SampleTodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6AF79A1A8BE8B400048ACC /* SampleTodoTests.m */; };
 		2D6AF7A61A8C32A100048ACC /* AddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6AF7A51A8C32A100048ACC /* AddToDoItemViewController.m */; };
 		2D6AF7A91A8C33FB00048ACC /* DoItListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6AF7A81A8C33FB00048ACC /* DoItListTableViewController.m */; };
+		2DBFD4961A99C0090038B230 /* DoItItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFD4951A99C0090038B230 /* DoItItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		2D6AF7A51A8C32A100048ACC /* AddToDoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoItemViewController.m; sourceTree = "<group>"; };
 		2D6AF7A71A8C33FB00048ACC /* DoItListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoItListTableViewController.h; sourceTree = "<group>"; };
 		2D6AF7A81A8C33FB00048ACC /* DoItListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoItListTableViewController.m; sourceTree = "<group>"; };
+		2DBFD4941A99C0090038B230 /* DoItItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoItItem.h; sourceTree = "<group>"; };
+		2DBFD4951A99C0090038B230 /* DoItItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoItItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				2D6AF7A51A8C32A100048ACC /* AddToDoItemViewController.m */,
 				2D6AF7A71A8C33FB00048ACC /* DoItListTableViewController.h */,
 				2D6AF7A81A8C33FB00048ACC /* DoItListTableViewController.m */,
+				2DBFD4941A99C0090038B230 /* DoItItem.h */,
+				2DBFD4951A99C0090038B230 /* DoItItem.m */,
 				2D6AF7881A8BE8B400048ACC /* Main.storyboard */,
 				2D6AF78B1A8BE8B400048ACC /* Images.xcassets */,
 				2D6AF78D1A8BE8B400048ACC /* LaunchScreen.xib */,
@@ -224,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DBFD4961A99C0090038B230 /* DoItItem.m in Sources */,
 				2D6AF7841A8BE8B400048ACC /* AppDelegate.m in Sources */,
 				2D6AF7811A8BE8B400048ACC /* main.m in Sources */,
 				2D6AF7A61A8C32A100048ACC /* AddToDoItemViewController.m in Sources */,
@@ -422,6 +428,7 @@
 				2D6AF7A01A8BE8B400048ACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D6AF7A11A8BE8B400048ACC /* Build configuration list for PBXNativeTarget "SampleTodoTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				2D6AF7A31A8BE8B400048ACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

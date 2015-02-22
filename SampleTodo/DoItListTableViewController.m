@@ -7,12 +7,35 @@
 //
 
 #import "DoItListTableViewController.h"
+#import "DoItItem.h"
 
 @interface DoItListTableViewController ()
+
+@property NSMutableArray *doItItems;
 
 @end
 
 @implementation DoItListTableViewController
+
+
+// Tutorial: Add Data -- in a real app, this would load stored items
+// private method
+- (void)loadInitialData {
+    DoItItem *item1 = [DoItItem new];
+    item1.itemName = @"Buy Sweet Brown Rice";
+    DoItItem *item2 = [DoItItem new];
+    item2.itemName = @"Buy Miso Paste";
+    DoItItem *item3 = [DoItItem new];
+    item3.itemName = @"Hike Lookout Peak";
+    DoItItem *item4 = [DoItItem new];
+    item4.itemName = @"Something Something Darkside";
+    
+    [self.doItItems addObject:item1];
+    [self.doItItems addObject:item2];
+    [self.doItItems addObject:item3];
+    [self.doItItems addObject:item4];
+}
+
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     
@@ -21,12 +44,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    // Tutorial: Add Data - create the private array of items
+    self.doItItems = [[NSMutableArray alloc] init];
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,15 +58,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    // Tutorial: Add Data -- only need 1 section for item lists
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (self.doItItems) {
+        return [self.doItItems count];
+    } else {
+        return 0;
+    }
 }
 
 /*
