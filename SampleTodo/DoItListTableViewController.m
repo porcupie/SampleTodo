@@ -71,15 +71,19 @@
     }
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    // Tutorial: Add Data -- grab data info and set in cell
+    DoItItem *doThis = [self.doItItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = doThis.itemName;
+    
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
