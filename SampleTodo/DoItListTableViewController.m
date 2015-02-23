@@ -9,6 +9,8 @@
 #import "DoItListTableViewController.h"
 #import "DoItItem.h"
 
+#import "AddToDoItemViewController.h"
+
 @interface DoItListTableViewController ()
 
 @property NSMutableArray *doItItems;
@@ -29,6 +31,7 @@
     item3.itemName = @"Hike Lookout Peak";
     DoItItem *item4 = [DoItItem new];
     item4.itemName = @"Something Something Darkside";
+    item4.completed = YES;
     
     [self.doItItems addObject:item1];
     [self.doItItems addObject:item2];
@@ -38,7 +41,13 @@
 
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    
+    AddToDoItemViewController *sourceController = [segue sourceViewController];
+    DoItItem *newItem = sourceController.toDoItem;
+    if (newItem != nil) {
+        [self.doItItems addObject:newItem];
+        // Because the table view doesn’t keep track of its data, it’s the responsibility of the data source—in this case, your table view controller—to notify the table view when there’s new data for it to display.
+        [self.tableView reloadData];
+    }
 }
 
 
