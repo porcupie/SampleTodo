@@ -86,6 +86,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="LPu-1q-FC8" id="LZh-AN-BwG"/>
                         <outlet property="textField" destination="MSW-14-aCe" id="NAP-dB-txb"/>
                     </connections>
                 </viewController>
