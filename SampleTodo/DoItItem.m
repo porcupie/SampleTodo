@@ -19,4 +19,16 @@
 
 @implementation DoItItem
 
+/*
+//- (void)setCompleted:(BOOL)completed {
+    _completed = completed;
+    // if completed, set date
+    if (completed == YES) {
+        self.completionDate = [NSDate new];
+    } else {
+        self.completionDate = nil;
+    }
+}
+ */
+
 @end

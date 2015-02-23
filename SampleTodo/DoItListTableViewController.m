@@ -80,6 +80,14 @@
     // Tutorial: Add Data -- grab data info and set in cell
     DoItItem *doThis = [self.doItItems objectAtIndex:indexPath.row];
     cell.textLabel.text = doThis.itemName;
+    NSLog(@"cell At Index %d=%@", (int)indexPath.row, doThis.itemName);
+    
+    // add the completion state icon 
+    if (doThis.isCompleted) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
@@ -128,5 +136,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // In this method, you want to respond to a tap but not actually leave the cell selected. 
+    // Add the following code to deselect the cell immediately after selection:
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    // Add this code line to search for the ToDoItem in your toDoItems array that corresponds to the cell that was tapped.
+    DoItItem *tappedItem = [self.doItItems objectAtIndex:indexPath.row];
+    
+    // toggle completion state
+    tappedItem.completed = !tappedItem.completed;
+    
+    // Tell the table view to reload the row whose data you just updated.
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 @end
