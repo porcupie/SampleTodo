@@ -9,8 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface SampleTodoTests : XCTestCase
+// import app specific headers for testing
+#import "AppDelegate.h"
+#import "DoItListTableViewController.h"
 
+@interface SampleTodoTests : XCTestCase {
+
+
+// private instance variables to hold refs to app, delegate, etc (had to add {} also)
+@private
+    UIApplication *app;
+    AppDelegate *appDelegate;
+    DoItListTableViewController *listController;
+    UIView *listView;
+
+}
 @end
 
 @implementation SampleTodoTests
@@ -18,6 +31,9 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    app = [UIApplication sharedApplication];
+    listController = (DoItListTableViewController*)[app delegate];
+    listView = listController.view;
 }
 
 - (void)tearDown {
@@ -35,6 +51,15 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+// did view get created?
+- (void)testDoItListView {
+    XCTAssertNotNil(listView, @"Cannot find list view");
+}
+// test the click of completion
+- (void)testCompletion {
+    
 }
 
 @end

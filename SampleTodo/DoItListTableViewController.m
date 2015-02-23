@@ -87,7 +87,7 @@
     // Configure the cell...
     
     // Tutorial: Add Data -- grab data info and set in cell
-    DoItItem *doThis = [self.doItItems objectAtIndex:indexPath.row];
+    DoItItem *doThis = (self.doItItems)[indexPath.row];
     cell.textLabel.text = doThis.itemName;
     NSLog(@"cell At Index %d=%@", (int)indexPath.row, doThis.itemName);
     
@@ -153,7 +153,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     // Add this code line to search for the ToDoItem in your toDoItems array that corresponds to the cell that was tapped.
-    DoItItem *tappedItem = [self.doItItems objectAtIndex:indexPath.row];
+    DoItItem *tappedItem = (self.doItItems)[indexPath.row];
     
     // toggle completion state
     tappedItem.completed = !tappedItem.completed;
