@@ -31,9 +31,12 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    // trying to add testing code of current application ...
     app = [UIApplication sharedApplication];
-    listController = (DoItListTableViewController*)[app delegate];
-    listView = listController.view;
+    appDelegate = [app delegate];
+    listController = (DoItListTableViewController*)[[app keyWindow] rootViewController];
+    listView = [listController view];
 }
 
 - (void)tearDown {

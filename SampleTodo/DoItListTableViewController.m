@@ -73,11 +73,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.doItItems) {
-        return [self.doItItems count];
-    } else {
-        return 0;
-    }
+    return [self.doItItems count];
 }
 
 
@@ -150,7 +146,7 @@
     // In this method, you want to respond to a tap but not actually leave the cell selected. 
     // Add the following code to deselect the cell immediately after selection:
 
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Add this code line to search for the ToDoItem in your toDoItems array that corresponds to the cell that was tapped.
     DoItItem *tappedItem = (self.doItItems)[indexPath.row];
