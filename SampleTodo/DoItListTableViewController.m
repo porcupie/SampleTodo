@@ -83,12 +83,12 @@
     // Configure the cell...
     
     // Tutorial: Add Data -- grab data info and set in cell
-    DoItItem *doThis = (self.doItItems)[indexPath.row];
+    DoItItem *doThis = [self.doItItems objectAtIndex:indexPath.row];
     cell.textLabel.text = doThis.itemName;
     NSLog(@"cell At Index %d=%@", (int)indexPath.row, doThis.itemName);
     
     // add the completion state icon 
-    if (doThis.isCompleted) {
+    if (doThis.completed) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -142,14 +142,16 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // In this method, you want to respond to a tap but not actually leave the cell selected. 
     // Add the following code to deselect the cell immediately after selection:
 
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     // Add this code line to search for the ToDoItem in your toDoItems array that corresponds to the cell that was tapped.
-    DoItItem *tappedItem = (self.doItItems)[indexPath.row];
+    DoItItem *tappedItem = [self.doItItems objectAtIndex:indexPath.row];
     
     // toggle completion state
     tappedItem.completed = !tappedItem.completed;
